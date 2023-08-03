@@ -22,8 +22,10 @@ async def handle_message():
             await websocket.send(message)
             
             response = await websocket.recv()
-            print(f"Received response: {response}")
-            
+            if response != "":
+                print(f"Received response: {response}")
+            else:
+                print()
 
 asyncio.get_event_loop().run_until_complete(handle_message())
 

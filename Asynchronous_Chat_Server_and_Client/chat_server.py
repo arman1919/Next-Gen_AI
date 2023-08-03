@@ -18,7 +18,7 @@ async def handle_client(websocket):
 
     try:
         async for message in websocket:
-            websocket.send("hi server")
+            
             
             print(f"Received message from client {message}")
 
@@ -27,6 +27,8 @@ async def handle_client(websocket):
             for client in clients:
                 if client is not  websocket:
                     await client.send(message)
+                else:
+                    await client.send("")
                 
                     
     except websockets.ConnectionClosed:
