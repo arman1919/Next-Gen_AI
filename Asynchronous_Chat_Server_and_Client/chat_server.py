@@ -12,17 +12,16 @@ async def unregister(websocket):
     print("Client  disconnected")
 
 async def handle_client(websocket):
-    # Выполните регистрацию клиента с уникальным client_id.
+   
     
     await register(websocket)
 
     try:
         async for message in websocket:
             websocket.send("hi server")
-            # Здесь можно обрабатывать входящие сообщения от клиента, если необходимо.
+            
             print(f"Received message from client {message}")
 
-            # Пример отправки ответного сообщения обратно клиенту.
             
             
             for client in clients:
